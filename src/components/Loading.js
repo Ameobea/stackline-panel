@@ -6,4 +6,6 @@ const styles = {
   },
 };
 
-export default () => <div style={styles.root}>Loading...</div>;
+export default ({ style = {} }) => (
+  <div style={{ ...styles.root, ...style }}>Loading...</div>
+);

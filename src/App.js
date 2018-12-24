@@ -33,8 +33,10 @@ const styles = {
 };
 
 const fetchProductData = async productId => {
-  // const fetchedData = await fetch(`/products/${productId}.json`);
-  return Promise.resolve(require('./data.json')[0]);
+  const url = `/products/${productId}.json`;
+  const res = await fetch(url);
+  const parsed = await res.json();
+  return parsed[0];
 };
 
 const App = ({ productId }) => {
@@ -50,32 +52,12 @@ const App = ({ productId }) => {
     return <Loading />;
   }
 
-  console.log(productData);
-
   return (
     <div style={styles.root}>
       <Header />
       <ProductDetails {...productData} />
     </div>
   );
-
-  // return (
-  //   <div style={styles.root}>
-  //     <h1 style={styles.title}>StackLine Interview Demo</h1>
-
-  //     <Suspense fallback={<Loading />}>
-  //       <div style={styles.chart}>
-  //         <Chart options={options} />
-  //       </div>
-  //     </Suspense>
-
-  //     <Suspense fallback={<Loading />}>
-  //       <div style={styles.table}>
-  //         <DataTable rows={data} renderCell={([x, y]) => `${x}, ${y}`} />
-  //       </div>
-  //     </Suspense>
-  //   </div>
-  // );
 };
 
 export default App;

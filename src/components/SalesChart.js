@@ -7,11 +7,6 @@ import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/legend';
-import 'echarts/lib/component/dataZoom';
-
-// import stacklineTheme from '../chartTheme';
-
-// echarts.registerTheme('stackline', stacklineTheme);
 
 const styles = {
   root: {
@@ -88,7 +83,7 @@ const createChartOption = salesData => {
   const yRange = yMax - yMin;
 
   return {
-    grid: { left: 30, right: 150 },
+    grid: { left: 50, right: 150 },
     xAxis: {
       type: 'time',
       interval: millisecondsPerMonth,
@@ -120,6 +115,7 @@ const createChartOption = salesData => {
       createSeries('Retail Sales', retailSalesSeries),
       createSeries('WholesaleSales', wholesaleSales),
     ],
+    color: ['#46A6F6', '#9AA5BE'],
   };
 };
 
