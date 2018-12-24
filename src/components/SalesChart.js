@@ -78,8 +78,8 @@ const createChartOption = salesData => {
     R.prop('wholesaleSales')
   );
 
-  const yMin = Math.min(minRetail, minWholesale) * 0.5;
-  const yMax = Math.max(maxRetail, maxWholesale) * 1.5;
+  const yMin = Math.min(minRetail, minWholesale);
+  const yMax = Math.max(maxRetail, maxWholesale);
   const yRange = yMax - yMin;
 
   return {
